@@ -1,0 +1,93 @@
+/* Basic */
+@font-face {
+  font-family: 'Overpass';
+  src: url("../fonts/Overpass-Regular.woff"), url("../fonts/Overpass-Bold.woff");
+}
+
+/* One Tableau viz was giving me trouble, so this forces them all to be the correct height. */
+.tableauPlaceholder {
+  max-height: 747px;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Overpass', Helvetica, Arial, 'Droid Sans', sans-serif;
+  color: #052b6c;
+}
+
+body {
+  background: rgb(0,152,228);
+  background: linear-gradient(90deg, rgba(0,152,228,1) 0%, rgba(5,43,108,1) 50%, rgba(0,152,228,1) 100%);
+}
+
+.navigator {
+  max-width: 2000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+nav {
+  background-color: whitesmoke;
+  background: linear-gradient(0deg, rgb(230, 230, 230) 0%, whitesmoke 2%);
+}
+
+.navbar-brand {
+  padding-left: 40px;
+  float: left;
+}
+
+#project-title {
+    display: block;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar-toggler {
+  float: right;
+}
+
+.navbar-nav {
+  padding-right: 40px;
+  float: right;
+}
+
+footer {
+  background-color: whitesmoke;
+  background: linear-gradient(0deg, whitesmoke 98%, rgb(230, 230, 230) 100%);
+}
+
+footer .container {
+  width: 160px;
+  margin: 0 auto;
+}
+
+
+@media (max-width: 991px) {
+  .navbar-toggler-icon {
+      height: 18px;
+      margin-top: -6px;
+  }
+
+  .navbar-brand {
+      font-size: .8em;
+  }
+
+  .nav-link {
+      font-size: .6em;
+  }
+}
+
+
+@media (max-width: 575px) {
+  .navbar-brand {
+      padding-left: 0px;
+  }
+
+  .navbar-nav {
+      float: left;    
+  }
+
+  .navbar-collapse {
+      clear: both;
+  }
+}

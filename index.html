@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Citi Bike Analysis</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="static/css/portfolioStyle.css">
+    </head>
+
+    <body>
+        <!-- Navbar -->
+        <div class="wrapper">
+            <nav class="navbar navbar-expand-sm navbar-light fixed-top">
+                <div class="navigator">
+                    <a class="navbar-brand text-muted" href="https://wbrueske.github.io/">Will Brueske</a>
+                    <div id="project-title">
+                        <a class="navbar-brand" href="#">Citi Bike Analysis</a>
+                    </div>
+                    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-sm-auto">
+                            <li class="nav-item"><a class="nav-link" href="https://github.com/wbrueske/Citi-Bike-Analysis" target="_blank">GitHub</a></li>
+                            <li class="nav-item"><a class="nav-link" href="https://wbrueske.github.io/">Portfolio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="mailto:wbrueske@live.com">wbrueske@live.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- End Navbar -->
+
+        <div class="container-fluid" style="padding-top: 100px; padding-bottom: 70px; max-width: 1350px;">
+            <div class="row">
+                <div class="col12 bg-white p-3 p-sm-5 clearfix">
+                    <h1>Citi Bike Analysis, April 2018 - March 2019</h1>
+                    <hr>
+                    <h2>Introduction</h2>
+                    <p>
+                        From April 2018 through March 2019 there were 18,616,865 recorded Citi Bike trips.  This analysis aims to break down the ridership demographics, to show which stations are more heavily used and why, and to give an overview of bike use.
+                    </p>
+
+                    <br>
+                    <h2>Data</h2>
+                    <p>
+                        CSVs were downloaded directly from Citi Bike’s repository.  Each CSV contained a record for every trip taken with Citi Bike for the specified month.  Each record has an origin station, destination station, id of the bike that was used, duration, usertype, age, and gender.  This does not cover individual users, only each trip.
+                    </p>
+                    <p>
+                        The entire year’s worth of data had more records than Tableau could handle, so transformation was done to get monthly aggregates for each bike station and each birth year of the users to enable visualization of the entire year.  Some figures below utilize the raw data of the last six months.
+                    </p>
+
+                    <br>
+                    <h2>Analysis</h2>
+                    <h3>Peak Hours</h3>
+                    <p>
+                        Naturally, peak usage hours are at 8:00AM and 5:00PM for rush the rush hours.  The figure below displays the cumulative records of the last six months, but the distribution is virtually identical for any given month or set of months.
+                    </p>
+                    <div class='tableauPlaceholder' id='viz1556649526911' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ci&#47;CitiBike_15554533662950&#47;PeakHoursDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='CitiBike_15554533662950&#47;PeakHoursDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ci&#47;CitiBike_15554533662950&#47;PeakHoursDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1556649526911');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.minWidth='420px';vizElement.style.maxWidth='1280px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='747px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+                    <br>
+                    <h3>Station Use</h3>
+                    <p>
+                        The most popular stations for beginning and ending a trip are largely the same, as are the least popular stations.
+                    </p>
+                    <!-- TABLE HERE -->
+                    <div style="width: 50%; float: left">
+                        <table class="table table-sm table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Origin Stations</th>
+                                    <th>Uses</th>
+                                    <th>Latitude</th>
+                                    <th>Longitude</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th colspan="4">Most Popular</th>
+                                </tr>
+                                <tr>
+                                    <td>Pershing Square North</td>
+                                    <td>150,869</td>
+                                    <td>40.752</td>
+                                    <td>-73.9777</td>
+                                </tr>
+                                <tr>
+                                    <td>E17 St & Broadway</td>
+                                    <td>112,425</td>
+                                    <td>40.737</td>
+                                    <td>-73.9901</td>
+                                </tr>
+                                <tr>
+                                    <td>W 21 St & 6 Ave</td>
+                                    <td>110,839</td>
+                                    <td>40.742</td>
+                                    <td>-73.9942</td>
+                                </tr>
+                                <tr>
+                                    <td>Broadway & E 22 St</td>
+                                    <td>108,667</td>
+                                    <td>40.740</td>
+                                    <td>-73.9896</td>
+                                </tr>
+                                <tr>
+                                    <td>Broadway & E 14 St</td>
+                                    <td>96,829</td>
+                                    <td>40.735</td>
+                                    <td>-73.9907</td>
+                                </tr>
+                                <tr>
+                                    <td>West St & Chambers St</td>
+                                    <td>96,359</td>
+                                    <td>40.718</td>
+                                    <td>-74.0132</td>
+                                </tr>
+                                <tr>
+                                    <td>West 41 St & 8 Ave</td>
+                                    <td>90,127</td>
+                                    <td>40.756</td>
+                                    <td>-73.9900</td>
+                                </tr>
+                                <tr>
+                                    <td>Broadway & W 60 St</td>
+                                    <td>87,841</td>
+                                    <td>40.769</td>
+                                    <td>-73.9819</td>
+                                </tr>
+                                <tr>
+                                    <td>8 Ave & W 33 St</td>
+                                    <td>87,510</td>
+                                    <td>40.752</td>
+                                    <td>-73.9939</td>
+                                </tr>
+                                <tr>
+                                    <td>Lafayette St & E 8 St</td>
+                                    <td>85,969</td>
+                                    <td>40.730</td>
+                                    <td>-73.9910</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="4">Least Popular</th>
+                                </tr>
+                                <tr>
+                                    <td>MLK Light Rail</td>
+                                    <td>11</td>
+                                    <td>40.711</td>
+                                    <td>-74.0789</td>
+                                </tr>
+                                <tr>
+                                    <td>Handlebar @ Gowanus</td>
+                                    <td>11</td>
+                                    <td>40.670</td>
+                                    <td>-73.9950</td>
+                                </tr>
+                                <tr>
+                                    <td>NYCBS Depot - Delancey</td>
+                                    <td>8</td>
+                                    <td>40.716</td>
+                                    <td>-73.9823</td>
+                                </tr>
+                                <tr>
+                                    <td>NJCU</td>
+                                    <td>7</td>
+                                    <td>40.710</td>
+                                    <td>-74.0858</td>
+                                </tr>
+                                <tr>
+                                    <td>Danforth Light Rail</td>
+                                    <td>6</td>
+                                    <td>40.693</td>
+                                    <td>-74.0880</td>
+                                </tr>
+                                <tr>
+                                    <td>58th St Depot</td>
+                                    <td>6</td>
+                                    <td>40.717</td>
+                                    <td>-73.9838</td>
+                                </tr>
+                                <tr>
+                                    <td>Columbia Park</td>
+                                    <td>3</td>
+                                    <td>40.697</td>
+                                    <td>-74.0969</td>
+                                </tr>
+                                <tr>
+                                    <td>8D OPS 01</td>
+                                    <td>3</td>
+                                    <td>40.663</td>
+                                    <td>-73.9997</td>
+                                </tr>
+                                <tr>
+                                    <td>GOW Tech Shop</td>
+                                    <td>2</td>
+                                    <td>40.670</td>
+                                    <td>-73.9950</td>
+                                </tr>
+                                <tr>
+                                    <td>8D QC Station 01</td>
+                                    <td>2</td>
+                                    <td>45.506</td>
+                                    <td>-73.5695</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="width: 50%; float: right">
+                        <table class="table table-sm table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Destination Stations</th>
+                                    <th>Uses</th>
+                                    <th>Latitude</th>
+                                    <th>Longitude</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th colspan="4">Most Popular</th>
+                                </tr>
+                                <tr>
+                                    <td>Pershing Square North</td>
+                                    <td>150,772</td>
+                                    <td>40.752</td>
+                                    <td>-73.9777</td>
+                                </tr>
+                                <tr>
+                                    <td>E17 St & Broadway</td>
+                                    <td>115,735</td>
+                                    <td>40.737</td>
+                                    <td>-73.9901</td>
+                                </tr>
+                                <tr>
+                                    <td>Broadway & E 22 St</td>
+                                    <td>113,627</td>
+                                    <td>40.740</td>
+                                    <td>-73.9896</td>
+                                </tr>
+                                <tr>
+                                    <td>W 21 St & 6 Ave</td>
+                                    <td>112,057</td>
+                                    <td>40.742</td>
+                                    <td>-73.9942</td>
+                                </tr>
+                                <tr>
+                                    <td>W St & Chambers St</td>
+                                    <td>101,603</td>
+                                    <td>40.718</td>
+                                    <td>-74.0132</td>
+                                </tr>
+                                <tr>
+                                    <td>Broadway & E 14 St</td>
+                                    <td>97,112</td>
+                                    <td>40.735</td>
+                                    <td>-73.9907</td>
+                                </tr>
+                                <tr>
+                                    <td>W 41 St & 8 Ave</td>
+                                    <td>90,353</td>
+                                    <td>40.756</td>
+                                    <td>-73.9900</td>
+                                </tr>
+                                <tr>
+                                    <td>8 Ave & W 33 St</td>
+                                    <td>87,458</td>
+                                    <td>40.752</td>
+                                    <td>-73.9939</td>
+                                </tr>
+                                <tr>
+                                    <td>Lafayette St & E 8 St</td>
+                                    <td>87,250</td>
+                                    <td>40.730</td>
+                                    <td>-73.9910</td>
+                                </tr>
+                                <tr>
+                                    <td>12 Ave & W 40 St</td>
+                                    <td>87,033</td>
+                                    <td>40.761</td>
+                                    <td>-74.0028</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="4">Least Popular</th>
+                                </tr>
+                                <tr>
+                                    <td>MLK Light Rail</td>
+                                    <td>9</td>
+                                    <td>40.711</td>
+                                    <td>-74.0789</td>
+                                </tr>
+                                <tr>
+                                    <td>Danforth Light Rail</td>
+                                    <td>7</td>
+                                    <td>40.693</td>
+                                    <td>-74.0880</td>
+                                </tr>
+                                <tr>
+                                    <td>58th St Depot</td>
+                                    <td>4</td>
+                                    <td>40.717</td>
+                                    <td>-73.9838</td>
+                                </tr>
+                                <tr>
+                                    <td>8D QC Station 01</td>
+                                    <td>3</td>
+                                    <td>45.506</td>
+                                    <td>-73.5695</td>
+                                </tr>
+                                <tr>
+                                    <td>GOW Tech Shop</td>
+                                    <td>2</td>
+                                    <td>40.670</td>
+                                    <td>-73.9950</td>
+                                </tr>
+                                <tr>
+                                    <td>Columbia Park</td>
+                                    <td>2</td>
+                                    <td>40.697</td>
+                                    <td>-74.0969</td>
+                                </tr>
+                                <tr>
+                                    <td>Bike Mechanics at Riis Room A</td>
+                                    <td>2</td>
+                                    <td>40.725</td>
+                                    <td>-73.9747</td>
+                                </tr>
+                                <tr>
+                                    <td>8D OPS 01</td>
+                                    <td>2</td>
+                                    <td>40.663</td>
+                                    <td>-73.9997</td>
+                                </tr>
+                                <tr>
+                                    <td>Prototype Lab Motivate Headquarters</td>
+                                    <td>1</td>
+                                    <td>40.657</td>
+                                    <td>-74.0085</td>
+                                </tr>
+                                <tr>
+                                    <td>Bike Mechanics at Riis Room B</td>
+                                    <td>1</td>
+                                    <td>40.672</td>
+                                    <td>-73.9971</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>
+                        The primary determining factor for how heavily a station is used is the GDP per capita income of the station’s location.  This can be seen in the figure below where darker block groups show higher GDP per capita income, and larger station markers show their level of use.  Higher income areas are more likely to use Citi Bike.
+                    </p>
+                    <div class='tableauPlaceholder' id='viz1556571618396' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ci&#47;CitiBikeMonthlyAggregates&#47;BikeStationsDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='CitiBikeMonthlyAggregates&#47;BikeStationsDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ci&#47;CitiBikeMonthlyAggregates&#47;BikeStationsDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1556571618396');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.minWidth='420px';vizElement.style.maxWidth='1280px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='747px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+                    <br>
+                    <h3>Breakdowns</h3>
+                    <h4>Usertypes</h4>
+                    <p>
+                        Citi Bike has two tiers of users: customers who pay for one and three day passes, and subscribers who pay an annual fee for unlimited bike use.  The bulk of the user base are annual subscribers, who total anywhere from 85% to almost 96% depending on the month.
+                    </p>
+                    <div class='tableauPlaceholder' id='viz1556570634968' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ci&#47;CitiBikeMonthlyAggregates&#47;Breakdowns&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='CitiBikeMonthlyAggregates&#47;Breakdowns' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ci&#47;CitiBikeMonthlyAggregates&#47;Breakdowns&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1556570634968');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1280px';vizElement.style.height='747px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+                    <br>
+                    <h4>Gender</h4>
+                    <p>
+                        There are three categories for gender: male, female, and unknown.  Most riders are male, which accounts for 65 - 75% of the user base (depending on the month), followed by female at 21 - 25%, and unknown at 3.5 - 11%.
+                    </p>
+
+                    <br>
+                    <h3>Age and Trip Duration</h3>
+                    <p>
+                        Overall average trip duration for all ages was 16.19 minutes.  Average trip duration per age can be seen in the figure below.  Generally, most average trip times per age are between 13 and 15 minutes.  The younger riders, born in 1995 or later, tend to take slightly longer trips.  There are few records for older riders, born 1936 and earlier, and as a result their average times vary greatly.  There is an unusual spike at those born in 1969 that brings their average up to over half an hour (we’ll examine that more closely later).
+                    </p>
+                    <div class='tableauPlaceholder' id='viz1556571268547' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ci&#47;CitiBikeAge&#47;AverageTripDurationbyAgeDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='CitiBikeAge&#47;AverageTripDurationbyAgeDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ci&#47;CitiBikeAge&#47;AverageTripDurationbyAgeDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1556571268547');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.minWidth='420px';vizElement.style.maxWidth='1280px';vizElement.style.width='100%';vizElement.style.height='387px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+                    <br>
+                    <p>
+                        TThe following visual shows the spread of trip duration by age and usertype or gender, with a maximum trip time of three hours.  Note that there’s a distinct spike at 1969 again.  Citi Bike charges extra money for every 15 minutes beyond 45 minutes for subscribers and 30 minutes for customers, so it’s interesting to see such a large amount of records that go above that time limit.  Curiously there are trips that last over 24 hours—even almost 900 hours!  Citi Bike says that trip logs for bikes taken out for maintenance are removed from their public data.  <a href="https://www.ny1.com/nyc/all-boroughs/news/2015/08/25/number-of-stolen-citi-bikes-way-up-#" target="_blank">Apparently there have been many issues with bikes not docking correctly and being stolen,</a> so these lengthy outliers may be such bikes.  They can be seen on the third page of the figure.
+                    </p>
+                    <div class='tableauPlaceholder' id='viz1556594717383' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ci&#47;CitiBike_15554533662950&#47;TripDurationvsBirthYear&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='CitiBike_15554533662950&#47;TripDurationvsBirthYear' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ci&#47;CitiBike_15554533662950&#47;TripDurationvsBirthYear&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1556594717383');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1280px';vizElement.style.height='747px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+                    <br>
+                    <h4>Born in 1969?</h4>
+                    <p>
+                        On display in the figure below is the immaturity of humans who sign up as customers.  There probably isn’t an inordinate amount of 50-year-olds purchasing one and three day passes from Citi Bike.  When we look at the gender of the users who say that they were born in 1969 it becomes quite clear that these are people who wish to remain anonymous as much as possible, and are having a little bit of fun with a Spartacus anonymity.
+                    </p>
+                    <div class='tableauPlaceholder' id='viz1556571316297' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ci&#47;CitiBikeAge&#47;Bornin1969&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='CitiBikeAge&#47;Bornin1969' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ci&#47;CitiBikeAge&#47;Bornin1969&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1556571316297');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1280px';vizElement.style.height='747px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+                    <br>
+                    <h3>Individual Bike Use</h3>
+                    <p>
+                        The following figure shows the use of bikes for March 2019.  Citi Bike inspects their bikes at least once every 45 days, but the bikes at the top of these lists could likely use another inspection sooner rather than later.
+                    </p>
+                    <div class='tableauPlaceholder' id='viz1556655931547' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TS&#47;TSP74SNBB&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;TSP74SNBB' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TS&#47;TSP74SNBB&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1556655931547');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.minWidth='420px';vizElement.style.maxWidth='1280px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='747px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+    <footer class="footer py-2">
+        <div class="container">
+            <span><a class="text-muted" href="mailto:wbrueske@live.com">wbrueske@live.com</a></span>
+        </div>
+    </footer>
+
+</html>
